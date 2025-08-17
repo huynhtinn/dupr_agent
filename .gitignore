@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Env & secrets
+.env
+
+# Vector stores / cache
+chroma_db_dupr/
+.cache/

@@ -1,0 +1,362 @@
+/* 
+DUPR Chatbot - Enhanced Styles
+Version 2.0 - Professional Design
+*/
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* CSS Variables for consistent theming */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(45deg, #4f46e5 0%, #06b6d4 100%);
+  --accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 20px 60px rgba(0, 0, 0, 0.1);
+  --shadow-strong: 0 30px 80px rgba(0, 0, 0, 0.15);
+  --border-radius: 16px;
+  --border-radius-large: 24px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark mode variables */
+[data-theme="dark"] {
+  --glass-bg: rgba(30, 41, 59, 0.95);
+  --glass-border: rgba(51, 65, 85, 0.3);
+  --primary-gradient: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+}
+
+/* Advanced animations */
+@keyframes morphBackground {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes floatingIcon {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(79, 70, 229, 0.6);
+  }
+}
+
+/* Enhanced header with floating elements */
+.header-enhanced {
+  background: var(--primary-gradient);
+  background-size: 400% 400%;
+  animation: morphBackground 8s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-enhanced::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: floatingIcon 6s ease-in-out infinite;
+}
+
+/* Enhanced chat bubbles */
+.chat-bubble-user {
+  background: var(--secondary-gradient) !important;
+  border-radius: 20px 20px 4px 20px !important;
+  box-shadow: var(--shadow-soft) !important;
+  animation: slideInFromBottom 0.4s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.chat-bubble-assistant {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 20px 20px 20px 4px !important;
+  box-shadow: var(--shadow-soft) !important;
+  animation: slideInFromBottom 0.4s ease-out 0.1s both;
+}
+
+/* Enhanced source chips with micro-interactions */
+.source-chip-enhanced {
+  background: var(--glass-bg);
+  backdrop-filter: blur(15px);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  padding: 8px 16px;
+  margin: 4px 6px 4px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.source-chip-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.source-chip-enhanced:hover::before {
+  left: 100%;
+}
+
+.source-chip-enhanced:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: var(--shadow-medium);
+  border-color: #4f46e5;
+}
+
+/* Enhanced buttons with better feedback */
+.btn-enhanced {
+  background: var(--secondary-gradient);
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 12px 24px;
+  color: white;
+  font-weight: 600;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn-enhanced::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-enhanced:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn-enhanced:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-enhanced:active {
+  transform: translateY(-1px);
+}
+
+/* Loading states */
+.loading-pulse {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.typing-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4f46e5;
+  animation: typingAnimation 1.4s ease-in-out infinite;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typingAnimation {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}
+
+/* Enhanced scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #4f46e5 #f1f5f9;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--secondary-gradient);
+  border-radius: 4px;
+  transition: var(--transition);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #4338ca 0%, #0891b2 100%);
+}
+
+/* Toast notifications */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-medium);
+  z-index: 1000;
+  animation: slideInFromBottom 0.4s ease-out;
+}
+
+.toast.success {
+  border-left: 4px solid #10b981;
+}
+
+.toast.error {
+  border-left: 4px solid #ef4444;
+}
+
+.toast.info {
+  border-left: 4px solid #3b82f6;
+}
+
+/* Responsive enhancements */
+@media (max-width: 1024px) {
+  .gradio-container {
+    padding: 16px !important;
+  }
+  
+  .header-enhanced {
+    padding: 20px 24px;
+  }
+  
+  .header-title {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .gradio-container {
+    padding: 12px !important;
+  }
+  
+  .header-enhanced {
+    padding: 16px 20px;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .header-title {
+    font-size: 22px !important;
+  }
+  
+  .header-sub {
+    font-size: 14px !important;
+  }
+  
+  .source-chip-enhanced {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+/* Dark mode specific enhancements */
+html.dark .toast {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: rgba(51, 65, 85, 0.3);
+  color: #e2e8f0;
+}
+
+html.dark .custom-scrollbar::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+/* Print styles */
+@media print {
+  .header-enhanced,
+  .control-panel,
+  .side-panel {
+    display: none !important;
+  }
+  
+  .chat-container {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .source-chip-enhanced {
+    border-width: 2px;
+  }
+  
+  .btn-enhanced {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
